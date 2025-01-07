@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>使用hexo搭建博客常用命令</title>
-    <url>/2025/01/07/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/2025/01/07/common/</url>
     <content><![CDATA[<p>此处记录在hexo搭建博客，发布文章时一些常用命令。</p>
 <h3 id="编译静态文件"><a href="#编译静态文件" class="headerlink" title="编译静态文件"></a>编译静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
@@ -16,9 +16,9 @@
   </entry>
   <entry>
     <title>博客编写示例</title>
-    <url>/1970/01/01/%E7%A4%BA%E4%BE%8B%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<ul>
-<li>此文档演示如何编写博客，设置title,tag,cover等</li>
+    <url>/1970/01/01/example/</url>
+    <content><![CDATA[<p>此文档演示如何编写博客，设置title,tag,cover等</p>
+<ul>
 <li>title: 标题</li>
 <li>tags: 标签</li>
 <li>categories: 分类</li>
