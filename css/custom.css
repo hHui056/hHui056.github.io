@@ -1,0 +1,31 @@
+/* 强制使用暗色模式 */
+:root {
+  --global-bg: #121212;
+  --font-color: #FFFFFF;
+  --hr-border: rgba(255, 255, 255, 0.4);
+  --hr-before-color: rgba(255, 255, 255, 0.7);
+  --search-bg: #121212;
+  --search-input-color: #FFFFFF;
+  --search-result-title: #FFFFFF;
+  --preloader-bg: #121212;
+  --card-bg: #1a1a1a;
+  --sidebar-bg: #1a1a1a;
+  --btn-hover-color: #787878;
+  --btn-color: #FFFFFF;
+  --text-bg-hover: #787878;
+  --light-grey: #848484;
+  --white: #FFFFFF;
+  --text-highlight-color: #FFFFFF;
+  --blockquote-color: #FFFFFF;
+  --blockquote-bg: #1a1a1a;
+}
+
+/* 确保所有元素都使用暗色主题 */
+html {
+  filter: invert(0) !important;
+}
+
+body {
+  background-color: var(--global-bg) !important;
+  color: var(--font-color) !important;
+}
