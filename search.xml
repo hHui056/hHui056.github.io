@@ -77,4 +77,16 @@
         <tag>笔记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>使用Github和hexo搭建博客</title>
+    <url>/2025/04/23/blog1/</url>
+    <content><![CDATA[<p>参考 <a href="https://kukual.github.io/2025/03/28/blog01/"><a href="https://kukual.github.io/2025/03/28/blog01/">利用Github和hexo搭建自己的个人博客 | kukual&amp;blog</a></a></p>
+<h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h3><h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><p>安装命令 <code>npm install hexo-cli -g</code></p>
+<p>测试命令 <code>hexo -v</code></p>
+<h3 id="4-hexo搭建本地博客测试"><a href="#4-hexo搭建本地博客测试" class="headerlink" title="4.hexo搭建本地博客测试"></a>4.hexo搭建本地博客测试</h3><p>初始化hexo命令 <code>hexo init</code></p>
+<p>安装hexo相关依赖 <code>npm install</code></p>
+<p>安装hexo-deployer-git <code>npm install hexo-deplcaer-git --save</code></p>
+<p>预览hexo <code>hexo s</code></p>
+<h3 id="5-hexo部署到GitHub"><a href="#5-hexo部署到GitHub" class="headerlink" title="5.hexo部署到GitHub"></a>5.hexo部署到GitHub</h3><h4 id="5-1-生成ssh-key"><a href="#5-1-生成ssh-key" class="headerlink" title="5.1 生成ssh key"></a>5.1 生成ssh key</h4><h4 id="5-2-添加ssh-key到github"><a href="#5-2-添加ssh-key到github" class="headerlink" title="5.2 添加ssh key到github"></a>5.2 添加ssh key到github</h4><h3 id="6-搭建个人博客"><a href="#6-搭建个人博客" class="headerlink" title="6.搭建个人博客"></a>6.搭建个人博客</h3>]]></content>
+  </entry>
 </search>
