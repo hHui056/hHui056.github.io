@@ -92,4 +92,30 @@
         <category>随笔</category>
       </categories>
   </entry>
+  <entry>
+    <title>如何使用nvm（Node Version Manager）管理Node版本</title>
+    <url>/2025/04/29/blog2/</url>
+    <content><![CDATA[<h3 id="下载并安装nvm"><a href="#下载并安装nvm" class="headerlink" title="下载并安装nvm"></a>下载并安装nvm</h3><ul>
+<li><p>访问 <a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></p>
+</li>
+<li><p>下载最新的nvm-setup.exe</p>
+</li>
+<li><p>运行安装程序</p>
+</li>
+</ul>
+<h3 id="安装完成后打开powershell，验证安装"><a href="#安装完成后打开powershell，验证安装" class="headerlink" title="安装完成后打开powershell，验证安装"></a>安装完成后打开powershell，验证安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm version</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看可用的Node-js版本"><a href="#查看可用的Node-js版本" class="headerlink" title="查看可用的Node.js版本"></a>查看可用的Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装指定版本的Node"><a href="#安装指定版本的Node" class="headerlink" title="安装指定版本的Node"></a>安装指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install xx.xx.x</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用指定版本的Node"><a href="#使用指定版本的Node" class="headerlink" title="使用指定版本的Node"></a>使用指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm use xx.xx.x</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证Node-js版本"><a href="#验证Node-js版本" class="headerlink" title="验证Node.js版本"></a>验证Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证npm版本"><a href="#验证npm版本" class="headerlink" title="验证npm版本"></a>验证npm版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+  </entry>
 </search>
