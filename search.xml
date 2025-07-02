@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>uView-Plus广告弹窗屏蔽脚本</title>
+    <url>/2025/01/07/uView-Plus%E5%B9%BF%E5%91%8A%E5%BC%B9%E7%AA%97%E5%B1%8F%E8%94%BD%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<p>uView-Plus文档网页不知道啥时候开始居然要看广告才能才看，fk。分享一个屏蔽广告的Tampermonkey脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==UserScript==</span><br><span class="line">// @name         uView Plus Doc Ad Blocker</span><br><span class="line">// @namespace    http://tampermonkey.net/</span><br><span class="line">// @version      0.3</span><br><span class="line">// @description  Block ads and alerts on uView Plus documentation</span><br><span class="line">// @author       You</span><br><span class="line">// @match        https://uiadmin.net/uview-plus/*</span><br><span class="line">// @grant        none</span><br><span class="line">// ==/UserScript==</span><br><span class="line"></span><br><span class="line">(function() &#123;</span><br><span class="line">    &#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line">    // 覆盖原始的 alert 函数</span><br><span class="line">    window.alert = function() &#123; return; &#125;;</span><br><span class="line"></span><br><span class="line">    // 创建一个样式元素</span><br><span class="line">    const style = document.createElement(&#x27;style&#x27;);</span><br><span class="line">    style.textContent = `</span><br><span class="line">        /* 隐藏特定的广告弹窗 */</span><br><span class="line">        .novip.el-dialog__wrapper &#123;</span><br><span class="line">            visibility: hidden !important;</span><br><span class="line">            opacity: 0 !important;</span><br><span class="line">            pointer-events: none !important;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /* 隐藏遮罩层 */</span><br><span class="line">        .v-modal &#123;</span><br><span class="line">            visibility: hidden !important;</span><br><span class="line">            opacity: 0 !important;</span><br><span class="line">            pointer-events: none !important;</span><br><span class="line">        &#125;</span><br><span class="line">    `;</span><br><span class="line"></span><br><span class="line">    // 将样式添加到文档头部</span><br><span class="line">    document.head.appendChild(style);</span><br><span class="line"></span><br><span class="line">    // 防止网站检测广告屏蔽</span><br><span class="line">    const noop = () =&gt; &#123;&#125;;</span><br><span class="line">    window.adsbygoogle = window.adsbygoogle || &#123; loaded: true, push: noop &#125;;</span><br><span class="line"></span><br><span class="line">    // 模拟广告加载成功</span><br><span class="line">    const fakeAd = document.createElement(&#x27;div&#x27;);</span><br><span class="line">    fakeAd.className = &#x27;adsbygoogle&#x27;;</span><br><span class="line">    fakeAd.style.display = &#x27;none&#x27;;</span><br><span class="line">    document.body.appendChild(fakeAd);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>使用Github和hexo搭建博客</title>
-    <url>/2025/04/23/blog1/</url>
+    <url>/2025/04/23/%E4%BD%BF%E7%94%A8Github%E5%92%8Chexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>参考 <a href="https://kukual.github.io/2025/03/28/blog01/"><a href="https://kukual.github.io/2025/03/28/blog01/">利用Github和hexo搭建自己的个人博客 | kukual&amp;blog</a></a></p>
 <h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h3><h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><p>安装命令 <code>npm install hexo-cli -g</code></p>
 <p>测试命令 <code>hexo -v</code></p>
@@ -11,40 +20,15 @@
 <p>安装hexo-deployer-git <code>npm install hexo-deplcaer-git --save</code></p>
 <p>预览hexo <code>hexo s</code></p>
 <p>发布博客 <code>hexo d</code></p>
+<p>清除缓存 <code>hexo clean</code></p>
 <h3 id="5-hexo部署到GitHub"><a href="#5-hexo部署到GitHub" class="headerlink" title="5.hexo部署到GitHub"></a>5.hexo部署到GitHub</h3><h4 id="5-1-生成ssh-key"><a href="#5-1-生成ssh-key" class="headerlink" title="5.1 生成ssh key"></a>5.1 生成ssh key</h4><h4 id="5-2-添加ssh-key到github"><a href="#5-2-添加ssh-key到github" class="headerlink" title="5.2 添加ssh key到github"></a>5.2 添加ssh key到github</h4><h3 id="6-搭建个人博客"><a href="#6-搭建个人博客" class="headerlink" title="6.搭建个人博客"></a>6.搭建个人博客</h3>]]></content>
       <categories>
         <category>随笔</category>
       </categories>
   </entry>
   <entry>
-    <title>如何使用nvm（Node Version Manager）管理Node版本</title>
-    <url>/2025/04/29/blog2/</url>
-    <content><![CDATA[<h3 id="下载并安装nvm"><a href="#下载并安装nvm" class="headerlink" title="下载并安装nvm"></a>下载并安装nvm</h3><ul>
-<li><p>访问 <a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></p>
-</li>
-<li><p>下载最新的nvm-setup.exe</p>
-</li>
-<li><p>运行安装程序</p>
-</li>
-</ul>
-<h3 id="安装完成后打开powershell，验证安装"><a href="#安装完成后打开powershell，验证安装" class="headerlink" title="安装完成后打开powershell，验证安装"></a>安装完成后打开powershell，验证安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm version</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看可用的Node-js版本"><a href="#查看可用的Node-js版本" class="headerlink" title="查看可用的Node.js版本"></a>查看可用的Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装指定版本的Node"><a href="#安装指定版本的Node" class="headerlink" title="安装指定版本的Node"></a>安装指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install xx.xx.x</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用指定版本的Node"><a href="#使用指定版本的Node" class="headerlink" title="使用指定版本的Node"></a>使用指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm use xx.xx.x</span><br></pre></td></tr></table></figure>
-
-<h3 id="验证Node-js版本"><a href="#验证Node-js版本" class="headerlink" title="验证Node.js版本"></a>验证Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<h3 id="验证npm版本"><a href="#验证npm版本" class="headerlink" title="验证npm版本"></a>验证npm版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-  </entry>
-  <entry>
     <title>博客编写示例</title>
-    <url>/1970/01/01/example/</url>
+    <url>/2025/01/07/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99%E7%A4%BA%E4%BE%8B/</url>
     <content><![CDATA[<p>此文档演示如何编写博客，设置title,tag,cover等</p>
 <ul>
 <li>title: 标题</li>
@@ -67,7 +51,7 @@
   </entry>
   <entry>
     <title>免费好用软件记录</title>
-    <url>/2025/01/08/software/</url>
+    <url>/2025/01/08/%E5%85%8D%E8%B4%B9%E5%A5%BD%E7%94%A8%E8%BD%AF%E4%BB%B6%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>记录一些好用的软件，逐步完善中…</p>
 <h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><h4 id="DevTool"><a href="#DevTool" class="headerlink" title="DevTool"></a>DevTool</h4><p><a href="https://hhui056.lanzouw.com/iNStG2kblqfg">点击下载</a></p>
 <p>包含多个在开发工程中常用的工具，如：JSON格式化、日期格式化、加解密、数据生成、http工具等</p>
@@ -85,22 +69,27 @@
       </categories>
   </entry>
   <entry>
-    <title>数字人开源项目</title>
-    <url>/2025/04/23/digitalhuman/</url>
-    <content><![CDATA[<h3 id="数字人开源项目总结"><a href="#数字人开源项目总结" class="headerlink" title="数字人开源项目总结"></a>数字人开源项目总结</h3>]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>uView-Plus广告弹窗屏蔽脚本</title>
-    <url>/2025/01/07/uViewPlusAdBlocker/</url>
-    <content><![CDATA[<p>uView-Plus文档网页不知道啥时候开始居然要看广告才能才看，fk。分享一个屏蔽广告的Tampermonkey脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==UserScript==</span><br><span class="line">// @name         uView Plus Doc Ad Blocker</span><br><span class="line">// @namespace    http://tampermonkey.net/</span><br><span class="line">// @version      0.3</span><br><span class="line">// @description  Block ads and alerts on uView Plus documentation</span><br><span class="line">// @author       You</span><br><span class="line">// @match        https://uiadmin.net/uview-plus/*</span><br><span class="line">// @grant        none</span><br><span class="line">// ==/UserScript==</span><br><span class="line"></span><br><span class="line">(function() &#123;</span><br><span class="line">    &#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line">    // 覆盖原始的 alert 函数</span><br><span class="line">    window.alert = function() &#123; return; &#125;;</span><br><span class="line"></span><br><span class="line">    // 创建一个样式元素</span><br><span class="line">    const style = document.createElement(&#x27;style&#x27;);</span><br><span class="line">    style.textContent = `</span><br><span class="line">        /* 隐藏特定的广告弹窗 */</span><br><span class="line">        .novip.el-dialog__wrapper &#123;</span><br><span class="line">            visibility: hidden !important;</span><br><span class="line">            opacity: 0 !important;</span><br><span class="line">            pointer-events: none !important;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /* 隐藏遮罩层 */</span><br><span class="line">        .v-modal &#123;</span><br><span class="line">            visibility: hidden !important;</span><br><span class="line">            opacity: 0 !important;</span><br><span class="line">            pointer-events: none !important;</span><br><span class="line">        &#125;</span><br><span class="line">    `;</span><br><span class="line"></span><br><span class="line">    // 将样式添加到文档头部</span><br><span class="line">    document.head.appendChild(style);</span><br><span class="line"></span><br><span class="line">    // 防止网站检测广告屏蔽</span><br><span class="line">    const noop = () =&gt; &#123;&#125;;</span><br><span class="line">    window.adsbygoogle = window.adsbygoogle || &#123; loaded: true, push: noop &#125;;</span><br><span class="line"></span><br><span class="line">    // 模拟广告加载成功</span><br><span class="line">    const fakeAd = document.createElement(&#x27;div&#x27;);</span><br><span class="line">    fakeAd.className = &#x27;adsbygoogle&#x27;;</span><br><span class="line">    fakeAd.style.display = &#x27;none&#x27;;</span><br><span class="line">    document.body.appendChild(fakeAd);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
+    <title>如何使用nvm（Node Version Manager）管理Node版本</title>
+    <url>/2025/04/29/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8nvm%EF%BC%88Node%20Version%20Manager%EF%BC%89%E7%AE%A1%E7%90%86Node%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h3 id="下载并安装nvm"><a href="#下载并安装nvm" class="headerlink" title="下载并安装nvm"></a>下载并安装nvm</h3><ul>
+<li><p>访问 <a href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></p>
+</li>
+<li><p>下载最新的nvm-setup.exe</p>
+</li>
+<li><p>运行安装程序</p>
+</li>
+</ul>
+<h3 id="安装完成后打开powershell，验证安装"><a href="#安装完成后打开powershell，验证安装" class="headerlink" title="安装完成后打开powershell，验证安装"></a>安装完成后打开powershell，验证安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm version</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看可用的Node-js版本"><a href="#查看可用的Node-js版本" class="headerlink" title="查看可用的Node.js版本"></a>查看可用的Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装指定版本的Node"><a href="#安装指定版本的Node" class="headerlink" title="安装指定版本的Node"></a>安装指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install xx.xx.x</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用指定版本的Node"><a href="#使用指定版本的Node" class="headerlink" title="使用指定版本的Node"></a>使用指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm use xx.xx.x</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证Node-js版本"><a href="#验证Node-js版本" class="headerlink" title="验证Node.js版本"></a>验证Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证npm版本"><a href="#验证npm版本" class="headerlink" title="验证npm版本"></a>验证npm版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>编程</category>
       </categories>
