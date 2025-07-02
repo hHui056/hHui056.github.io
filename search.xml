@@ -87,6 +87,7 @@
 <p>安装hexo相关依赖 <code>npm install</code></p>
 <p>安装hexo-deployer-git <code>npm install hexo-deplcaer-git --save</code></p>
 <p>预览hexo <code>hexo s</code></p>
+<p>发布博客 <code>hexo d</code></p>
 <h3 id="5-hexo部署到GitHub"><a href="#5-hexo部署到GitHub" class="headerlink" title="5.hexo部署到GitHub"></a>5.hexo部署到GitHub</h3><h4 id="5-1-生成ssh-key"><a href="#5-1-生成ssh-key" class="headerlink" title="5.1 生成ssh key"></a>5.1 生成ssh key</h4><h4 id="5-2-添加ssh-key到github"><a href="#5-2-添加ssh-key到github" class="headerlink" title="5.2 添加ssh key到github"></a>5.2 添加ssh key到github</h4><h3 id="6-搭建个人博客"><a href="#6-搭建个人博客" class="headerlink" title="6.搭建个人博客"></a>6.搭建个人博客</h3>]]></content>
       <categories>
         <category>随笔</category>
