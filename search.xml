@@ -1,27 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Android获取文件读写路径</title>
+    <url>/2025/07/02/Android%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E8%B7%AF%E5%BE%84/</url>
+    <content><![CDATA[<p> 此处记录一种不用请求文件权限的方法来获取应用的文件存储路径</p>
+<h5 id="新建provider-paths-xml文件"><a href="#新建provider-paths-xml文件" class="headerlink" title="新建provider_paths.xml文件"></a>新建provider_paths.xml文件</h5><p>在res&#x2F;xml下新建文件provider_paths.xml，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">paths</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">files-path</span></span></span><br><span class="line"><span class="tag">        <span class="attr">name</span>=<span class="string">&quot;internal_files&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">path</span>=<span class="string">&quot;.&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">paths</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="在manifest中注册provider"><a href="#在manifest中注册provider" class="headerlink" title="在manifest中注册provider"></a>在manifest中注册provider</h5><p>在AndroidManifest.xml中的application节点下添加如下代码:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">provider</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">&quot;androidx.core.content.FileProvider&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:authorities</span>=<span class="string">&quot;$&#123;applicationId&#125;.provider&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:exported</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:grantUriPermissions</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:name</span>=<span class="string">&quot;android.support.FILE_PROVIDER_PATHS&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:resource</span>=<span class="string">&quot;@xml/provider_paths&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">provider</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="获取文件存储路径"><a href="#获取文件存储路径" class="headerlink" title="获取文件存储路径"></a>获取文件存储路径</h5><figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">filesDir.absolutePath</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>一条命令激活 JetBrains 全家桶</title>
+    <url>/2025/07/03/%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E6%BF%80%E6%B4%BB%20JetBrains%20%E5%85%A8%E5%AE%B6%E6%A1%B6/</url>
+    <content><![CDATA[<h4 id="🚀-懒人专属命令（全自动）"><a href="#🚀-懒人专属命令（全自动）" class="headerlink" title="🚀 懒人专属命令（全自动）"></a><strong>🚀 懒人专属命令（全自动）</strong></h4><h5 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">irm ckey.run | iex</span><br></pre></td></tr></table></figure>
+
+<p>加 <code>debug</code> 查看完整流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">irm ckey.run/debug | iex</span><br></pre></td></tr></table></figure>
+
+<p>仅查看源码（不执行）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">irm ckey.run</span><br></pre></td></tr></table></figure>
+
+<h5 id="Linux-WSL-Ubuntu："><a href="#Linux-WSL-Ubuntu：" class="headerlink" title="Linux &#x2F; WSL &#x2F; Ubuntu："></a><strong>Linux &#x2F; WSL &#x2F; Ubuntu：</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate ckey.run -O ckey.run &amp;&amp; bash ckey.run</span><br></pre></td></tr></table></figure>
+
+<h5 id="macOS（Intel-M-系列）："><a href="#macOS（Intel-M-系列）：" class="headerlink" title="macOS（Intel &#x2F; M 系列）："></a><strong>macOS（Intel &#x2F; M 系列）：</strong></h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L -o ckey.run ckey.run &amp;&amp; bash ckey.run</span><br></pre></td></tr></table></figure>
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>必须联网使用，首次执行需下载 jar 文件</li>
+<li>Windows 请使用管理员权限 PowerShell</li>
+<li>macOS 建议先运行 <code>xcode-select --install</code></li>
+<li>激活前请备份 <code>.java</code> 和 JetBrains 配置文件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title>uView-Plus广告弹窗屏蔽脚本</title>
     <url>/2025/01/07/uView-Plus%E5%B9%BF%E5%91%8A%E5%BC%B9%E7%AA%97%E5%B1%8F%E8%94%BD%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<p>uView-Plus文档网页不知道啥时候开始居然要看广告才能才看，fk。分享一个屏蔽广告的Tampermonkey脚本</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// ==UserScript==</span><br><span class="line">// @name         uView Plus Doc Ad Blocker</span><br><span class="line">// @namespace    http://tampermonkey.net/</span><br><span class="line">// @version      0.3</span><br><span class="line">// @description  Block ads and alerts on uView Plus documentation</span><br><span class="line">// @author       You</span><br><span class="line">// @match        https://uiadmin.net/uview-plus/*</span><br><span class="line">// @grant        none</span><br><span class="line">// ==/UserScript==</span><br><span class="line"></span><br><span class="line">(function() &#123;</span><br><span class="line">    &#x27;use strict&#x27;;</span><br><span class="line"></span><br><span class="line">    // 覆盖原始的 alert 函数</span><br><span class="line">    window.alert = function() &#123; return; &#125;;</span><br><span class="line"></span><br><span class="line">    // 创建一个样式元素</span><br><span class="line">    const style = document.createElement(&#x27;style&#x27;);</span><br><span class="line">    style.textContent = `</span><br><span class="line">        /* 隐藏特定的广告弹窗 */</span><br><span class="line">        .novip.el-dialog__wrapper &#123;</span><br><span class="line">            visibility: hidden !important;</span><br><span class="line">            opacity: 0 !important;</span><br><span class="line">            pointer-events: none !important;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        /* 隐藏遮罩层 */</span><br><span class="line">        .v-modal &#123;</span><br><span class="line">            visibility: hidden !important;</span><br><span class="line">            opacity: 0 !important;</span><br><span class="line">            pointer-events: none !important;</span><br><span class="line">        &#125;</span><br><span class="line">    `;</span><br><span class="line"></span><br><span class="line">    // 将样式添加到文档头部</span><br><span class="line">    document.head.appendChild(style);</span><br><span class="line"></span><br><span class="line">    // 防止网站检测广告屏蔽</span><br><span class="line">    const noop = () =&gt; &#123;&#125;;</span><br><span class="line">    window.adsbygoogle = window.adsbygoogle || &#123; loaded: true, push: noop &#125;;</span><br><span class="line"></span><br><span class="line">    // 模拟广告加载成功</span><br><span class="line">    const fakeAd = document.createElement(&#x27;div&#x27;);</span><br><span class="line">    fakeAd.className = &#x27;adsbygoogle&#x27;;</span><br><span class="line">    fakeAd.style.display = &#x27;none&#x27;;</span><br><span class="line">    document.body.appendChild(fakeAd);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         uView Plus Doc Ad Blocker</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      0.3</span></span><br><span class="line"><span class="comment">// @description  Block ads and alerts on uView Plus documentation</span></span><br><span class="line"><span class="comment">// @author       You</span></span><br><span class="line"><span class="comment">// @match        https://uiadmin.net/uview-plus/*</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 覆盖原始的 alert 函数</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">alert</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="keyword">return</span>; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建一个样式元素</span></span><br><span class="line">    <span class="keyword">const</span> style = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;style&#x27;</span>);</span><br><span class="line">    style.<span class="property">textContent</span> = <span class="string">`</span></span><br><span class="line"><span class="string">        /* 隐藏特定的广告弹窗 */</span></span><br><span class="line"><span class="string">        .novip.el-dialog__wrapper &#123;</span></span><br><span class="line"><span class="string">            visibility: hidden !important;</span></span><br><span class="line"><span class="string">            opacity: 0 !important;</span></span><br><span class="line"><span class="string">            pointer-events: none !important;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        /* 隐藏遮罩层 */</span></span><br><span class="line"><span class="string">        .v-modal &#123;</span></span><br><span class="line"><span class="string">            visibility: hidden !important;</span></span><br><span class="line"><span class="string">            opacity: 0 !important;</span></span><br><span class="line"><span class="string">            pointer-events: none !important;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    `</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将样式添加到文档头部</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">head</span>.<span class="title function_">appendChild</span>(style);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 防止网站检测广告屏蔽</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">noop</span> = (<span class="params"></span>) =&gt; &#123;&#125;;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">adsbygoogle</span> = <span class="variable language_">window</span>.<span class="property">adsbygoogle</span> || &#123; <span class="attr">loaded</span>: <span class="literal">true</span>, <span class="attr">push</span>: noop &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟广告加载成功</span></span><br><span class="line">    <span class="keyword">const</span> fakeAd = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    fakeAd.<span class="property">className</span> = <span class="string">&#x27;adsbygoogle&#x27;</span>;</span><br><span class="line">    fakeAd.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(fakeAd);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>编程</category>
+        <category>JS</category>
       </categories>
   </entry>
   <entry>
     <title>使用Github和hexo搭建博客</title>
     <url>/2025/04/23/%E4%BD%BF%E7%94%A8Github%E5%92%8Chexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>参考 <a href="https://kukual.github.io/2025/03/28/blog01/"><a href="https://kukual.github.io/2025/03/28/blog01/">利用Github和hexo搭建自己的个人博客 | kukual&amp;blog</a></a></p>
-<h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h3><h3 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h3><p>安装命令 <code>npm install hexo-cli -g</code></p>
+    <content><![CDATA[<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><p>安装命令 <code>npm install hexo-cli -g</code></p>
 <p>测试命令 <code>hexo -v</code></p>
-<h3 id="4-hexo搭建本地博客测试"><a href="#4-hexo搭建本地博客测试" class="headerlink" title="4.hexo搭建本地博客测试"></a>4.hexo搭建本地博客测试</h3><p>初始化hexo命令 <code>hexo init</code></p>
+<h3 id="hexo搭建本地博客测试"><a href="#hexo搭建本地博客测试" class="headerlink" title="hexo搭建本地博客测试"></a>hexo搭建本地博客测试</h3><p>初始化hexo命令 <code>hexo init</code></p>
 <p>安装hexo相关依赖 <code>npm install</code></p>
 <p>安装hexo-deployer-git <code>npm install hexo-deplcaer-git --save</code></p>
 <p>预览hexo <code>hexo s</code></p>
 <p>发布博客 <code>hexo d</code></p>
 <p>清除缓存 <code>hexo clean</code></p>
-<h3 id="5-hexo部署到GitHub"><a href="#5-hexo部署到GitHub" class="headerlink" title="5.hexo部署到GitHub"></a>5.hexo部署到GitHub</h3><h4 id="5-1-生成ssh-key"><a href="#5-1-生成ssh-key" class="headerlink" title="5.1 生成ssh key"></a>5.1 生成ssh key</h4><h4 id="5-2-添加ssh-key到github"><a href="#5-2-添加ssh-key到github" class="headerlink" title="5.2 添加ssh key到github"></a>5.2 添加ssh key到github</h4><h3 id="6-搭建个人博客"><a href="#6-搭建个人博客" class="headerlink" title="6.搭建个人博客"></a>6.搭建个人博客</h3>]]></content>
+<h3 id="git配置SSH-key"><a href="#git配置SSH-key" class="headerlink" title="git配置SSH key"></a>git配置SSH key</h3><h4 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh key"></a>生成ssh key</h4><p>1.命令 <code> ssh-keygen -t rsa -c &quot;邮件地址&quot;</code></p>
+<ul>
+<li>注意：邮箱地址为github登录的邮箱地址，输入命令后连续按三次回车。</li>
+</ul>
+<p>2.在用户文件夹下可以看到一个.ssh的文件夹</p>
+<p>3.进入.ssh文件夹打开id_rsa.pub文件，复制内容</p>
+<h4 id="添加ssh-key到github"><a href="#添加ssh-key到github" class="headerlink" title="添加ssh key到github"></a>添加ssh key到github</h4><p>1.打开github个人主页—&gt;点击偶像—&gt;点击击Settings</p>
+<p>2.选择SSH and GPG keys —&gt;New SSH key</p>
+<p>3.key填入id_rsa.pub中复制的内容</p>
+<p>4.测试是否添加成功<code> ssh -T git@github.com</code></p>
+<p>5.配置账号和密码</p>
+<p>命令1：<code> git config --global user.name &quot;yourname&quot;</code>，yourname为GitHub用户名</p>
+<p>命令2：<code> git config --global user.email &quot;youremail&quot;</code>，youremail为GitHub注册邮箱</p>
+<h3 id="搭建个人博客"><a href="#搭建个人博客" class="headerlink" title="搭建个人博客"></a>搭建个人博客</h3><h4 id="创建博客文件夹"><a href="#创建博客文件夹" class="headerlink" title="创建博客文件夹"></a>创建博客文件夹</h4><h4 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h4><p>1.在右上角个人头像附近有个+，点它，然后再点New repository</p>
+<p>2.给仓库命名，进行其他设置，点击创建 仓库名称格式：用户名.github.io</p>
+<p>3.打开博客文件夹下_config.yml文件，拉到最后。</p>
+<p>找到deploy这部分，替换为以下内容</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy</span>:</span><br><span class="line">  <span class="attr">type</span>: git</span><br><span class="line">  <span class="attr">repository</span>: git@github.<span class="property">com</span>:name/name.<span class="property">github</span>.<span class="property">io</span>.<span class="property">git</span> </span><br><span class="line">  <span class="attr">branch</span>: main</span><br></pre></td></tr></table></figure>
+
+<h4 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>随笔</category>
       </categories>
@@ -91,7 +154,7 @@
 
 <h3 id="验证npm版本"><a href="#验证npm版本" class="headerlink" title="验证npm版本"></a>验证npm版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>编程</category>
+        <category>其他</category>
       </categories>
   </entry>
 </search>
