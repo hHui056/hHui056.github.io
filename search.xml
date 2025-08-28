@@ -148,10 +148,6 @@
 
 <h3 id="查看已安装的版本"><a href="#查看已安装的版本" class="headerlink" title="查看已安装的版本"></a>查看已安装的版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
 
-
-
-
-
 <h3 id="安装指定版本的Node"><a href="#安装指定版本的Node" class="headerlink" title="安装指定版本的Node"></a>安装指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install xx.xx.x</span><br></pre></td></tr></table></figure>
 
 <h3 id="使用指定版本的Node"><a href="#使用指定版本的Node" class="headerlink" title="使用指定版本的Node"></a>使用指定版本的Node</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm use xx.xx.x</span><br></pre></td></tr></table></figure>
@@ -159,6 +155,31 @@
 <h3 id="验证Node-js版本"><a href="#验证Node-js版本" class="headerlink" title="验证Node.js版本"></a>验证Node.js版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
 
 <h3 id="验证npm版本"><a href="#验证npm版本" class="headerlink" title="验证npm版本"></a>验证npm版本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Idea插件安装推荐</title>
+    <url>/2025/08/28/Idea%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90/</url>
+    <content><![CDATA[<h4 id="Rainbow-Brackets"><a href="#Rainbow-Brackets" class="headerlink" title="Rainbow Brackets"></a>Rainbow Brackets</h4><h4 id="Material-Theme-UI"><a href="#Material-Theme-UI" class="headerlink" title="Material Theme UI"></a>Material Theme UI</h4><h4 id="Atom-Material-Icons"><a href="#Atom-Material-Icons" class="headerlink" title="Atom Material Icons"></a>Atom Material Icons</h4>]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Typora安装和激活教程</title>
+    <url>/2025/08/28/Typora%E5%AE%89%E8%A3%85%E5%92%8C%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h4 id="下载Typora和对应的激活文件"><a href="#下载Typora和对应的激活文件" class="headerlink" title="下载Typora和对应的激活文件"></a>下载Typora和对应的激活文件</h4><p><a href="https://pan.quark.cn/s/6c8a8299d75f">https://pan.quark.cn/s/6c8a8299d75f</a></p>
+<h4 id="激活"><a href="#激活" class="headerlink" title="激活"></a>激活</h4><ul>
+<li>1.安装下载文件中的typora-setup-x64.exe</li>
+<li>2.将下载好的license-gen.exe和node_inject.exe文件拷贝到typora安装文件夹下</li>
+<li>3.通过命令行打开CMD窗口</li>
+<li>4.执行node_inject.exe直到控制台输出done</li>
+<li>5.执行license-gen.exe生成激活码</li>
+<li>6.打开Typora，输入生成的激活码完成激活（邮箱随意输入）</li>
+</ul>
+]]></content>
       <categories>
         <category>其他</category>
       </categories>
